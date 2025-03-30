@@ -63,18 +63,28 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				// New custom color scheme
+				custom: {
+					red: '#F7374F',
+					purple: {
+						light: '#88304E',
+						dark: '#522546',
+					},
+					dark: '#2C2C2C',
+				},
+				// Replacing tyrian colors with our new color scheme
 				tyrian: {
-					50: '#f5f3ff',
-					100: '#ede9fe',
-					200: '#ddd6fe',
-					300: '#c4b5fd',
-					400: '#a78bfa',
-					500: '#8b5cf6',
-					600: '#7c3aed',
-					700: '#6d28d9',
-					800: '#5b21b6',
-					900: '#4c1d95',
-					950: '#2e1065',
+					50: '#FEE5EB',
+					100: '#FDC1CF',
+					200: '#FB9EB3',
+					300: '#F97A96',
+					400: '#F7577A',
+					500: '#F7374F', // Main red
+					600: '#D42E48',
+					700: '#B12642',
+					800: '#88304E', // Light purple
+					900: '#522546', // Dark purple
+					950: '#2C2C2C', // Dark
 				},
 			},
 			borderRadius: {

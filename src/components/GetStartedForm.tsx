@@ -111,7 +111,7 @@ const GetStartedForm = ({ onSuccess }: GetStartedFormProps) => {
         <div className="flex justify-end">
           <Button
             type="submit"
-            className="bg-tyrian-700 hover:bg-tyrian-800 text-white"
+            className="bg-custom-red hover:bg-custom-purple-light text-white"
           >
             Submit Request
           </Button>

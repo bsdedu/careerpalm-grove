@@ -73,7 +73,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm dark:bg-gray-900/90 translate-y-0"
+          ? "bg-white/90 backdrop-blur-md shadow-sm dark:bg-custom-dark/90 translate-y-0"
           : "bg-transparent translate-y-0"
       }`}
     >
@@ -81,8 +81,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center transition-transform hover:scale-105 duration-300">
-            <span className="text-2xl font-bold text-tyrian-800 dark:text-tyrian-400">
-              Tyrian<span className="text-tyrian-600">AI</span>
+            <span className="text-2xl font-bold text-custom-purple-dark dark:text-custom-red">
+              Tyrian<span className="text-custom-red">AI</span>
             </span>
           </Link>
 
@@ -92,7 +92,7 @@ const Header = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-700 hover:text-tyrian-700 dark:text-gray-200 dark:hover:text-tyrian-400 font-medium transition-colors hover:scale-105 duration-300"
+                className="text-custom-dark hover:text-custom-red dark:text-gray-200 dark:hover:text-custom-red font-medium transition-colors hover:scale-105 duration-300"
               >
                 {link.name}
               </Link>
@@ -100,14 +100,14 @@ const Header = () => {
             
             {/* Services Hover Menu */}
             <div className="relative group">
-              <button className="text-gray-700 hover:text-tyrian-700 dark:text-gray-200 dark:hover:text-tyrian-400 font-medium transition-colors flex items-center gap-1 hover:scale-105 duration-300">
+              <button className="text-custom-dark hover:text-custom-red dark:text-gray-200 dark:hover:text-custom-red font-medium transition-colors flex items-center gap-1 hover:scale-105 duration-300">
                 Services <ChevronDown size={16} className="transition-transform group-hover:rotate-180 duration-300" />
               </button>
               <div className="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
-                <div className="py-2 bg-white dark:bg-gray-800 rounded-md shadow-xl border border-gray-200 dark:border-gray-700 animate-fade-in">
+                <div className="py-2 bg-white dark:bg-custom-dark rounded-md shadow-xl border border-gray-200 dark:border-custom-purple-dark animate-fade-in">
                   <Link 
                     to="/services" 
-                    className="block px-4 py-2 text-sm text-gray-700 hover:text-tyrian-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-tyrian-400 dark:hover:bg-gray-700"
+                    className="block px-4 py-2 text-sm text-custom-dark hover:text-custom-red hover:bg-gray-100 dark:text-gray-200 dark:hover:text-custom-red dark:hover:bg-custom-purple-dark/30"
                   >
                     All Services
                   </Link>
@@ -115,7 +115,7 @@ const Header = () => {
                     <Link
                       key={service.name}
                       to={service.path}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:text-tyrian-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-tyrian-400 dark:hover:bg-gray-700"
+                      className="block px-4 py-2 text-sm text-custom-dark hover:text-custom-red hover:bg-gray-100 dark:text-gray-200 dark:hover:text-custom-red dark:hover:bg-custom-purple-dark/30"
                     >
                       {service.name}
                     </Link>
@@ -125,7 +125,7 @@ const Header = () => {
             </div>
             
             <Button 
-              className="bg-tyrian-700 hover:bg-tyrian-800 text-white hover:scale-105 transition-all duration-300"
+              className="bg-custom-red hover:bg-custom-purple-light text-white hover:scale-105 transition-all duration-300"
               onClick={handleGetStarted}
             >
               Get Started
@@ -149,13 +149,13 @@ const Header = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg animate-fade-in">
+        <div className="md:hidden bg-white dark:bg-custom-dark shadow-lg animate-fade-in">
           <div className="px-4 pt-2 pb-4 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-tyrian-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-tyrian-400 dark:hover:bg-gray-800 transition-all duration-300"
+                className="block px-3 py-2 rounded-md text-base font-medium text-custom-dark hover:text-custom-red hover:bg-gray-50 dark:text-gray-200 dark:hover:text-custom-red dark:hover:bg-custom-purple-dark/30 transition-all duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -163,12 +163,12 @@ const Header = () => {
             ))}
             
             {/* Mobile Services submenu */}
-            <div className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200">
+            <div className="block px-3 py-2 text-base font-medium text-custom-dark dark:text-gray-200">
               <span>Services</span>
-              <div className="pl-4 mt-2 space-y-2 border-l border-gray-200 dark:border-gray-700">
+              <div className="pl-4 mt-2 space-y-2 border-l border-gray-200 dark:border-custom-purple-dark">
                 <Link
                   to="/services"
-                  className="block py-1 text-gray-600 hover:text-tyrian-700 dark:text-gray-300 dark:hover:text-tyrian-400 transition-all duration-300"
+                  className="block py-1 text-gray-600 hover:text-custom-red dark:text-gray-300 dark:hover:text-custom-red transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   All Services
@@ -177,7 +177,7 @@ const Header = () => {
                   <Link
                     key={service.name}
                     to={service.path}
-                    className="block py-1 text-gray-600 hover:text-tyrian-700 dark:text-gray-300 dark:hover:text-tyrian-400 transition-all duration-300"
+                    className="block py-1 text-gray-600 hover:text-custom-red dark:text-gray-300 dark:hover:text-custom-red transition-all duration-300"
                     onClick={() => setIsOpen(false)}
                   >
                     {service.name}
@@ -187,7 +187,7 @@ const Header = () => {
             </div>
             
             <Button 
-              className="w-full bg-tyrian-700 hover:bg-tyrian-800 text-white mt-4 transition-all duration-300"
+              className="w-full bg-custom-red hover:bg-custom-purple-light text-white mt-4 transition-all duration-300"
               onClick={() => {
                 setIsOpen(false);
                 handleGetStarted();
