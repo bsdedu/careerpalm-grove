@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -41,14 +46,14 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm dark:bg-gray-900/90"
-          : "bg-transparent"
+          ? "bg-white/90 backdrop-blur-md shadow-sm dark:bg-gray-900/90 translate-y-0"
+          : "bg-transparent translate-y-0"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center transition-transform hover:scale-105 duration-300">
             <span className="text-2xl font-bold text-tyrian-800 dark:text-tyrian-400">
               Tyrian<span className="text-tyrian-600">AI</span>
             </span>
@@ -60,32 +65,39 @@ const Header = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-700 hover:text-tyrian-700 dark:text-gray-200 dark:hover:text-tyrian-400 font-medium transition-colors"
+                className="text-gray-700 hover:text-tyrian-700 dark:text-gray-200 dark:hover:text-tyrian-400 font-medium transition-colors hover:scale-105 duration-300"
               >
                 {link.name}
               </Link>
             ))}
             
-            {/* Services Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="text-gray-700 hover:text-tyrian-700 dark:text-gray-200 dark:hover:text-tyrian-400 font-medium transition-colors flex items-center gap-1">
-                  Services <ChevronDown size={16} />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-                <DropdownMenuItem asChild>
-                  <Link to="/services" className="w-full cursor-pointer">All Services</Link>
-                </DropdownMenuItem>
-                {serviceLinks.map((service) => (
-                  <DropdownMenuItem key={service.name} asChild>
-                    <Link to={service.path} className="w-full cursor-pointer">{service.name}</Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* Services Hover Menu */}
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-tyrian-700 dark:text-gray-200 dark:hover:text-tyrian-400 font-medium transition-colors flex items-center gap-1 hover:scale-105 duration-300">
+                Services <ChevronDown size={16} className="transition-transform group-hover:rotate-180 duration-300" />
+              </button>
+              <div className="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                <div className="py-2 bg-white dark:bg-gray-800 rounded-md shadow-xl border border-gray-200 dark:border-gray-700 animate-fade-in">
+                  <Link 
+                    to="/services" 
+                    className="block px-4 py-2 text-sm text-gray-700 hover:text-tyrian-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-tyrian-400 dark:hover:bg-gray-700"
+                  >
+                    All Services
+                  </Link>
+                  {serviceLinks.map((service) => (
+                    <Link
+                      key={service.name}
+                      to={service.path}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:text-tyrian-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-tyrian-400 dark:hover:bg-gray-700"
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
             
-            <Button className="bg-tyrian-700 hover:bg-tyrian-800 text-white">
+            <Button className="bg-tyrian-700 hover:bg-tyrian-800 text-white hover:scale-105 transition-all duration-300">
               Get Started
             </Button>
           </nav>
@@ -97,6 +109,7 @@ const Header = () => {
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
+              className="transition-transform active:scale-90"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -112,7 +125,7 @@ const Header = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-tyrian-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-tyrian-400 dark:hover:bg-gray-800"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-tyrian-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-tyrian-400 dark:hover:bg-gray-800 transition-all duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -125,7 +138,7 @@ const Header = () => {
               <div className="pl-4 mt-2 space-y-2 border-l border-gray-200 dark:border-gray-700">
                 <Link
                   to="/services"
-                  className="block py-1 text-gray-600 hover:text-tyrian-700 dark:text-gray-300 dark:hover:text-tyrian-400"
+                  className="block py-1 text-gray-600 hover:text-tyrian-700 dark:text-gray-300 dark:hover:text-tyrian-400 transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   All Services
@@ -134,7 +147,7 @@ const Header = () => {
                   <Link
                     key={service.name}
                     to={service.path}
-                    className="block py-1 text-gray-600 hover:text-tyrian-700 dark:text-gray-300 dark:hover:text-tyrian-400"
+                    className="block py-1 text-gray-600 hover:text-tyrian-700 dark:text-gray-300 dark:hover:text-tyrian-400 transition-all duration-300"
                     onClick={() => setIsOpen(false)}
                   >
                     {service.name}
@@ -144,7 +157,7 @@ const Header = () => {
             </div>
             
             <Button 
-              className="w-full bg-tyrian-700 hover:bg-tyrian-800 text-white mt-4"
+              className="w-full bg-tyrian-700 hover:bg-tyrian-800 text-white mt-4 transition-all duration-300"
               onClick={() => setIsOpen(false)}
             >
               Get Started
