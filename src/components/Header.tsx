@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -63,7 +64,7 @@ const Header = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    // Services is handled separately with dropdown
+    { name: "Services", path: "/services" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" },
   ];
