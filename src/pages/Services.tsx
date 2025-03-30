@@ -153,15 +153,15 @@ const Services = () => {
         {/* Hero Section */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold gradient-heading mb-6">Our Services</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <h1 className="text-4xl md:text-5xl font-bold gradient-heading mb-6 animate-fade-in">Our Services</h1>
+            <p className="text-xl text-gray-600 dark:text-gray-400 animate-slide-up">
               Cutting-edge AI solutions designed to transform your business and drive innovation.
             </p>
           </div>
         </div>
 
         {/* Services Navigation Menu */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16 animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Explore Our Services</h2>
             
@@ -252,7 +252,14 @@ const Services = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+              <Card 
+                key={index} 
+                className="border-gray-200 dark:border-gray-700 overflow-hidden"
+                animateHover
+                animateOnView
+                variant={index % 3 === 0 ? "lift" : index % 3 === 1 ? "glow" : "scale"}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <CardHeader>
                   <div className="mb-4">{service.icon}</div>
                   <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
@@ -272,7 +279,7 @@ const Services = () => {
                 </CardContent>
                 <CardFooter>
                   <Link to={service.path} className="w-full">
-                    <Button className="w-full" variant="outline">
+                    <Button className="w-full hover-lift" variant="outline">
                       Learn More
                     </Button>
                   </Link>
@@ -285,8 +292,8 @@ const Services = () => {
         {/* Process Section */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Approach</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in">Our Approach</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto animate-slide-up">
               A proven methodology that delivers successful AI implementations.
             </p>
           </div>
@@ -318,7 +325,11 @@ const Services = () => {
                   description: "Implementing the solution in your environment with ongoing support and optimization."
                 }
               ].map((step, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm relative">
+                <div 
+                  key={index} 
+                  className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm relative hover-lift"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
                   <div className="w-12 h-12 bg-tyrian-600 dark:bg-tyrian-700 rounded-full flex items-center justify-center text-white font-bold mb-4 mx-auto lg:mx-0">
                     {step.number}
                   </div>
@@ -331,7 +342,7 @@ const Services = () => {
         </div>
         
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-tyrian-800 to-tyrian-600 py-16">
+        <div className="bg-gradient-to-r from-tyrian-800 to-tyrian-600 py-16 animate-fade-in" style={{ animationDelay: "0.6s" }}>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-white mb-6">Ready to transform your business with AI?</h2>
@@ -339,10 +350,10 @@ const Services = () => {
                 Contact us today to discuss how our services can help you achieve your business goals.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button className="bg-white text-tyrian-800 hover:bg-gray-100">
+                <Button className="bg-white text-tyrian-800 hover:bg-gray-100 hover-scale">
                   Schedule a Consultation
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/20">
+                <Button variant="outline" className="border-white text-white hover:bg-white/20 hover-scale">
                   View Case Studies
                 </Button>
               </div>
