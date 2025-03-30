@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Brain, Cpu, BarChart, Shield, Building, Microscope, Ambulance, ShoppingCart, GraduationCap, Globe, Users, Award, Rocket, Code, Clock, Server } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -51,7 +52,7 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
-      {/* Features Section */}
+      {/* Advanced AI Solutions for Modern Businesses */}
       <ScrollFadeIn delay={200}>
         <section className="py-20 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,74 +66,51 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Feature items - Modified to ensure equal heights */}
-              <ScrollFadeIn direction="up" delay={300} threshold={0.2}>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
-                  <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
-                    <Brain className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />
+              {[
+                {
+                  icon: <Brain className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />,
+                  title: "Machine Learning",
+                  description: "Custom machine learning models trained on your data to solve your unique business challenges.",
+                  path: "/services/machine-learning"
+                },
+                {
+                  icon: <Cpu className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />,
+                  title: "Natural Language Processing",
+                  description: "Advanced text analysis, sentiment detection, and language understanding capabilities.",
+                  path: "/services/natural-language-processing"
+                },
+                {
+                  icon: <BarChart className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />,
+                  title: "Predictive Analytics",
+                  description: "Forecast trends, identify risks, and uncover hidden opportunities in your business data.",
+                  path: "/services/predictive-analytics"
+                },
+                {
+                  icon: <Shield className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />,
+                  title: "AI Security",
+                  description: "Protect your business with AI-powered threat detection and automated response systems.",
+                  path: "/services/ai-security"
+                }
+              ].map((service, index) => (
+                <ScrollFadeIn key={index} direction="up" delay={300 + (index * 100)} threshold={0.2}>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col justify-between">
+                    <div>
+                      <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                        {service.description}
+                      </p>
+                    </div>
+                    <Link to={service.path} className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
+                      Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Machine Learning
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                    Custom machine learning models trained on your data to solve your unique business challenges.
-                  </p>
-                  <Link to="/services/machine-learning" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </ScrollFadeIn>
-
-              <ScrollFadeIn direction="up" delay={400} threshold={0.2}>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
-                  <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
-                    <Cpu className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Natural Language Processing
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                    Advanced text analysis, sentiment detection, and language understanding capabilities.
-                  </p>
-                  <Link to="/services/natural-language-processing" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </ScrollFadeIn>
-
-              <ScrollFadeIn direction="up" delay={500} threshold={0.2}>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
-                  <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
-                    <BarChart className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Predictive Analytics
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                    Forecast trends, identify risks, and uncover hidden opportunities in your business data.
-                  </p>
-                  <Link to="/services/predictive-analytics" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </ScrollFadeIn>
-
-              <ScrollFadeIn direction="up" delay={600} threshold={0.2}>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
-                  <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
-                    <Shield className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    AI Security
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                    Protect your business with AI-powered threat detection and automated response systems.
-                  </p>
-                  <Link to="/services/ai-security" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </ScrollFadeIn>
+                </ScrollFadeIn>
+              ))}
             </div>
           </div>
         </section>
@@ -442,7 +420,7 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
-      {/* Why Choose Us Section - Fixed alignment issues */}
+      {/* Why Choose Us Section - Improved Alignment and Design */}
       <ScrollFadeIn delay={500}>
         <section className="py-20 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -455,82 +433,66 @@ const Home = () => {
               </p>
             </div>
             
-            <div className="flex flex-col lg:flex-row items-start">
-              <div className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
-                <div className="space-y-6">
-                  {[
-                    {
-                      id: 1,
-                      title: "Elite AI Expertise",
-                      description: "Our team includes PhD researchers and AI engineers from top tech companies and research institutions with a proven track record of innovation."
-                    },
-                    {
-                      id: 2,
-                      title: "Custom-Tailored Solutions",
-                      description: "We don't believe in one-size-fits-all. Every AI solution we develop is meticulously crafted to address your specific business needs and objectives."
-                    },
-                    {
-                      id: 3,
-                      title: "End-to-End Support",
-                      description: "From initial consultation to deployment and beyond, we provide comprehensive support including 24/7 monitoring, maintenance, and continuous optimization."
-                    },
-                    {
-                      id: 4,
-                      title: "Proven ROI",
-                      description: "Our clients consistently report a significant return on investment, with an average 35% increase in operational efficiency and 25% cost reduction."
-                    }
-                  ].map((feature) => (
-                    <ScrollFadeIn key={feature.id} direction="left" delay={600 + (feature.id * 100)} threshold={0.2}>
-                      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 transform transition-transform hover:scale-105">
-                        <div className="flex items-start">
-                          <CheckCircle className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400 mr-3 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                              {feature.title}
-                            </h3>
-                            <p className="text-gray-600 dark:text-gray-300">
-                              {feature.description}
-                            </p>
-                          </div>
-                        </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                {[
+                  {
+                    id: 1,
+                    title: "Elite AI Expertise",
+                    description: "Our team includes PhD researchers and AI engineers from top tech companies and research institutions with a proven track record of innovation."
+                  },
+                  {
+                    id: 2,
+                    title: "Custom-Tailored Solutions",
+                    description: "We don't believe in one-size-fits-all. Every AI solution we develop is meticulously crafted to address your specific business needs and objectives."
+                  },
+                  {
+                    id: 3,
+                    title: "End-to-End Support",
+                    description: "From initial consultation to deployment and beyond, we provide comprehensive support including 24/7 monitoring, maintenance, and continuous optimization."
+                  },
+                  {
+                    id: 4,
+                    title: "Proven ROI",
+                    description: "Our clients consistently report a significant return on investment, with an average 35% increase in operational efficiency and 25% cost reduction."
+                  }
+                ].map((feature) => (
+                  <ScrollFadeIn key={feature.id} direction="left" delay={600 + (feature.id * 100)} threshold={0.2}>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transform transition-transform hover:scale-105 flex items-start space-x-4">
+                      <CheckCircle className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400 flex-shrink-0 mt-1" />
+                      <div>
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                          {feature.title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300">
+                          {feature.description}
+                        </p>
                       </div>
-                    </ScrollFadeIn>
-                  ))}
-                </div>
+                    </div>
+                  </ScrollFadeIn>
+                ))}
               </div>
               
               <ScrollFadeIn direction="right" delay={700}>
-                <div className="lg:w-1/2 lg:mt-0">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform translate-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80"
+                  ].map((src, index) => (
+                    <div 
+                      key={index} 
+                      className={`bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden 
+                        ${index % 2 === 0 ? 'translate-y-4' : ''}`}
+                    >
                       <img 
-                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" 
-                        alt="Team collaboration" 
-                        className="w-full h-full object-cover"
+                        src={src} 
+                        alt={`TyrianAI imagery ${index + 1}`} 
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
                     </div>
-                    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden">
-                      <img 
-                        src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80" 
-                        alt="AI technology" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden">
-                      <img 
-                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
-                        alt="Data visualization" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform translate-y-4">
-                      <img 
-                        src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80" 
-                        alt="Remote work" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </ScrollFadeIn>
             </div>
