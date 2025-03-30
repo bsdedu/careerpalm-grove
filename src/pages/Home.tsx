@@ -592,4 +592,4 @@ const Home = () => {
             <p className="text-xl text-tyrian-100 mb-8 max-w-3xl mx-auto">
               Join hundreds of forward-thinking companies already leveraging our AI solutions to drive growth and innovation.
             </p>
-            <
+            <div className="
