@@ -20,6 +20,7 @@ import JobApplication from "./pages/JobApplication";
 import NotFound from "./pages/NotFound";
 import MachineLearning from "./pages/service-details/MachineLearning";
 import NaturalLanguageProcessing from "./pages/service-details/NaturalLanguageProcessing";
+import Index from "./pages/Index";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const AppContent = () => {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/index" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/machine-learning" element={<MachineLearning />} />
