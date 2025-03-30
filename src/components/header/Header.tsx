@@ -15,7 +15,8 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      // Reduced scroll threshold from 10 to 5 for more responsive header change
+      setScrolled(window.scrollY > 5);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
