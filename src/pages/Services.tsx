@@ -1,11 +1,72 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { ArrowRight, Brain, Cpu, Database, BarChart, Search, Eye, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Brain, Cpu, Database, BarChart, Search, Eye, MessageSquare, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 const Services = () => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const serviceCategories = [
+    {
+      name: "AI Solutions",
+      services: [
+        {
+          icon: <Brain className="h-6 w-6 text-tyrian-600" />,
+          title: "Machine Learning",
+          description: "Custom machine learning models to solve complex business problems.",
+          path: "/services/machine-learning"
+        },
+        {
+          icon: <MessageSquare className="h-6 w-6 text-tyrian-600" />,
+          title: "Natural Language Processing",
+          description: "Advanced NLP solutions to understand and generate human language.",
+          path: "/services/natural-language-processing"
+        },
+        {
+          icon: <Eye className="h-6 w-6 text-tyrian-600" />,
+          title: "Computer Vision",
+          description: "Image and video analysis for automated visual understanding.",
+          path: "/services/computer-vision"
+        }
+      ]
+    },
+    {
+      name: "Data Services",
+      services: [
+        {
+          icon: <Database className="h-6 w-6 text-tyrian-600" />,
+          title: "Big Data Analytics",
+          description: "Turn your data into actionable insights with advanced analytics.",
+          path: "/services/big-data-analytics"
+        },
+        {
+          icon: <BarChart className="h-6 w-6 text-tyrian-600" />,
+          title: "Predictive Analytics",
+          description: "Forecast trends and identify opportunities in your data.",
+          path: "/services/predictive-analytics"
+        },
+        {
+          icon: <Search className="h-6 w-6 text-tyrian-600" />,
+          title: "Data Mining",
+          description: "Discover patterns and extract valuable information from large datasets.",
+          path: "/services/data-mining"
+        }
+      ]
+    }
+  ];
+
   const services = [
     {
       icon: <Brain className="h-12 w-12 text-tyrian-600" />,
@@ -16,7 +77,8 @@ const Services = () => {
         "Custom AI strategy development",
         "Implementation roadmap",
         "ROI forecasting"
-      ]
+      ],
+      path: "/services/ai-consulting"
     },
     {
       icon: <Cpu className="h-12 w-12 text-tyrian-600" />,
@@ -27,7 +89,8 @@ const Services = () => {
         "Deep learning models",
         "Reinforcement learning",
         "Transfer learning applications"
-      ]
+      ],
+      path: "/services/machine-learning"
     },
     {
       icon: <MessageSquare className="h-12 w-12 text-tyrian-600" />,
@@ -38,7 +101,8 @@ const Services = () => {
         "Chatbot development",
         "Text summarization",
         "Language translation"
-      ]
+      ],
+      path: "/services/natural-language-processing"
     },
     {
       icon: <Eye className="h-12 w-12 text-tyrian-600" />,
@@ -49,7 +113,8 @@ const Services = () => {
         "Facial recognition",
         "Video analytics",
         "Augmented reality integration"
-      ]
+      ],
+      path: "/services/computer-vision"
     },
     {
       icon: <Database className="h-12 w-12 text-tyrian-600" />,
@@ -60,7 +125,8 @@ const Services = () => {
         "Real-time analytics",
         "Predictive modeling",
         "Data visualization"
-      ]
+      ],
+      path: "/services/big-data-analytics"
     },
     {
       icon: <Search className="h-12 w-12 text-tyrian-600" />,
@@ -71,7 +137,8 @@ const Services = () => {
         "Custom research projects",
         "Publication support",
         "Technology prototyping"
-      ]
+      ],
+      path: "/services/ai-research"
     }
   ];
 
@@ -90,6 +157,94 @@ const Services = () => {
             <p className="text-xl text-gray-600 dark:text-gray-400">
               Cutting-edge AI solutions designed to transform your business and drive innovation.
             </p>
+          </div>
+        </div>
+
+        {/* Services Navigation Menu */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Explore Our Services</h2>
+            
+            {/* Desktop Navigation Menu */}
+            <div className="hidden md:block">
+              <NavigationMenu>
+                <NavigationMenuList>
+                  {serviceCategories.map((category, index) => (
+                    <NavigationMenuItem key={index}>
+                      <NavigationMenuTrigger>{category.name}</NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                          {category.services.map((service, serviceIndex) => (
+                            <li key={serviceIndex}>
+                              <Link to={service.path}>
+                                <NavigationMenuLink asChild>
+                                  <a className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                                    <div className="flex items-center mb-2">
+                                      {service.icon}
+                                      <div className="text-sm font-medium leading-none ml-2">{service.title}</div>
+                                    </div>
+                                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                      {service.description}
+                                    </p>
+                                  </a>
+                                </NavigationMenuLink>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  ))}
+                  <NavigationMenuItem>
+                    <Link to="/services">
+                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        All Services
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
+            
+            {/* Mobile Accordion Menu */}
+            <div className="md:hidden space-y-4">
+              {serviceCategories.map((category, index) => (
+                <div key={index} className="border-b border-gray-200 dark:border-gray-700 pb-4">
+                  <button
+                    className="flex items-center justify-between w-full text-left font-medium text-gray-900 dark:text-white py-2"
+                    onClick={() => setActiveCategory(activeCategory === category.name ? null : category.name)}
+                  >
+                    <span>{category.name}</span>
+                    <ChevronDown 
+                      className={`h-5 w-5 transition-transform ${activeCategory === category.name ? 'transform rotate-180' : ''}`} 
+                    />
+                  </button>
+                  
+                  {activeCategory === category.name && (
+                    <div className="mt-2 space-y-2 pl-4">
+                      {category.services.map((service, serviceIndex) => (
+                        <Link 
+                          key={serviceIndex} 
+                          to={service.path}
+                          className="block py-2 text-gray-600 hover:text-tyrian-600 dark:text-gray-300 dark:hover:text-tyrian-400"
+                        >
+                          <div className="flex items-center">
+                            {service.icon}
+                            <span className="ml-2">{service.title}</span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <Link 
+                to="/services"
+                className="block w-full text-center bg-gray-100 dark:bg-gray-700 rounded-md py-2 font-medium text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600"
+              >
+                View All Services
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -116,9 +271,11 @@ const Services = () => {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" variant="outline">
-                    Learn More
-                  </Button>
+                  <Link to={service.path} className="w-full">
+                    <Button className="w-full" variant="outline">
+                      Learn More
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             ))}

@@ -14,6 +14,8 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import JobApplication from "./pages/JobApplication";
 import NotFound from "./pages/NotFound";
+import MachineLearning from "./pages/service-details/MachineLearning";
+import NaturalLanguageProcessing from "./pages/service-details/NaturalLanguageProcessing";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,8 @@ const App = () => (
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/services/machine-learning" element={<MachineLearning />} />
+              <Route path="/services/natural-language-processing" element={<NaturalLanguageProcessing />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/careers/job/:jobId" element={<JobApplication />} />
