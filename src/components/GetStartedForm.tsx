@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -111,7 +110,7 @@ const GetStartedForm = ({ onSuccess }: GetStartedFormProps) => {
         <div className="flex justify-end">
           <Button
             type="submit"
-            className="bg-custom-red hover:bg-custom-purple-light text-white"
+            className="w-full"
           >
             Submit Request
           </Button>

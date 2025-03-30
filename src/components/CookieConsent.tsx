@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -47,13 +46,12 @@ const CookieConsent = () => {
             <div className="flex flex-wrap gap-3 mt-2 md:mt-0">
               <Button
                 variant="outline"
-                className="border-tyrian-600 text-tyrian-700 hover:bg-tyrian-50 dark:border-tyrian-400 dark:text-tyrian-400 dark:hover:bg-gray-800"
+                className="border-custom-red text-custom-red hover:bg-custom-red/10"
                 onClick={acceptNecessary}
               >
                 Necessary Only
               </Button>
               <Button 
-                className="bg-tyrian-700 hover:bg-tyrian-800 text-white"
                 onClick={acceptAll}
               >
                 Accept All

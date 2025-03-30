@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,7 +42,7 @@ const FloatingEnquiryForm = () => {
     <>
       <Button
         onClick={toggleForm}
-        className={`fixed bottom-4 right-4 z-50 rounded-full p-3 bg-primary hover:bg-primary/80 shadow-lg ${isOpen ? 'bg-destructive hover:bg-destructive/80' : 'hover-scale'}`}
+        className={`fixed bottom-4 right-4 z-50 rounded-full p-3 shadow-lg ${isOpen ? 'bg-destructive hover:bg-destructive/80' : 'hover-scale'}`}
         size="icon"
         aria-label={isOpen ? "Close enquiry form" : "Open enquiry form"}
       >

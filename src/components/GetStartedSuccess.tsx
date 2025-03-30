@@ -17,7 +17,7 @@ const GetStartedSuccess = ({ onClose }: GetStartedSuccessProps) => {
       <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-md">
         Your information has been successfully submitted. Our team will review your request and contact you shortly to discuss how TyrianAI can help your business.
       </p>
-      <Button onClick={onClose} className="bg-custom-red hover:bg-custom-purple-light text-white">
+      <Button onClick={onClose}>
         Close
       </Button>
     </div>
