@@ -1,6 +1,5 @@
-
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Brain, Cpu, BarChart, Shield, Building, Microscope, Ambulance, ShoppingCart, GraduationCap, Globe } from "lucide-react";
+import { ArrowRight, CheckCircle, Brain, Cpu, BarChart, Shield, Building, Microscope, Ambulance, ShoppingCart, GraduationCap, Globe, Users, Award, Rocket, Code, Clock, Server } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollFadeIn from "@/components/ScrollFadeIn";
 
@@ -66,70 +65,70 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Feature items */}
+              {/* Feature items - Modified to ensure equal heights */}
               <ScrollFadeIn direction="up" delay={300} threshold={0.2}>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                   <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
                     <Brain className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Machine Learning
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
                     Custom machine learning models trained on your data to solve your unique business challenges.
                   </p>
-                  <Link to="/services/machine-learning" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline">
+                  <Link to="/services/machine-learning" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </ScrollFadeIn>
 
               <ScrollFadeIn direction="up" delay={400} threshold={0.2}>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                   <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
                     <Cpu className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Natural Language Processing
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
                     Advanced text analysis, sentiment detection, and language understanding capabilities.
                   </p>
-                  <Link to="/services/natural-language-processing" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline">
+                  <Link to="/services/natural-language-processing" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </ScrollFadeIn>
 
               <ScrollFadeIn direction="up" delay={500} threshold={0.2}>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                   <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
                     <BarChart className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Predictive Analytics
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
                     Forecast trends, identify risks, and uncover hidden opportunities in your business data.
                   </p>
-                  <Link to="/services/predictive-analytics" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline">
+                  <Link to="/services/predictive-analytics" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </ScrollFadeIn>
 
               <ScrollFadeIn direction="up" delay={600} threshold={0.2}>
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                   <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
                     <Shield className="h-6 w-6 text-tyrian-700 dark:text-tyrian-400" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     AI Security
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
                     Protect your business with AI-powered threat detection and automated response systems.
                   </p>
-                  <Link to="/services/ai-security" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline">
+                  <Link to="/services/ai-security" className="inline-flex items-center text-tyrian-700 dark:text-tyrian-400 hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
@@ -231,6 +230,68 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
+      {/* Who We Are - New Section */}
+      <ScrollFadeIn delay={350} direction="up">
+        <section className="py-20 bg-white dark:bg-gray-900">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <ScrollFadeIn direction="left" delay={400}>
+                <div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1534456066664-dc8b3a9a3010?auto=format&fit=crop&w=800&q=80" 
+                    alt="TyrianAI Team" 
+                    className="rounded-xl shadow-lg w-full"
+                  />
+                </div>
+              </ScrollFadeIn>
+              <ScrollFadeIn direction="right" delay={450}>
+                <div className="space-y-6">
+                  <h2 className="text-3xl md:text-4xl font-bold gradient-heading mb-6">
+                    Who We Are
+                  </h2>
+                  <p className="text-lg text-gray-600 dark:text-gray-300">
+                    At TyrianAI, we are a team of passionate AI experts, data scientists, and engineers dedicated to transforming how businesses leverage artificial intelligence. Founded in 2018, we've grown from a small startup to an industry-leading AI solutions provider.
+                  </p>
+                  <p className="text-lg text-gray-600 dark:text-gray-300">
+                    Our mission is to democratize access to advanced AI technologies, making them accessible and practical for businesses of all sizes. We believe in the power of AI to solve complex problems, drive innovation, and create sustainable competitive advantages.
+                  </p>
+                  <div className="grid grid-cols-2 gap-6 mt-8">
+                    <div className="flex items-center">
+                      <Users className="h-10 w-10 text-tyrian-600 mr-4" />
+                      <div>
+                        <h3 className="font-bold text-lg">60+ AI Experts</h3>
+                        <p className="text-gray-600 dark:text-gray-400">Specialized team</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <Award className="h-10 w-10 text-tyrian-600 mr-4" />
+                      <div>
+                        <h3 className="font-bold text-lg">15+ Awards</h3>
+                        <p className="text-gray-600 dark:text-gray-400">Industry recognition</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <Rocket className="h-10 w-10 text-tyrian-600 mr-4" />
+                      <div>
+                        <h3 className="font-bold text-lg">200+ Projects</h3>
+                        <p className="text-gray-600 dark:text-gray-400">Successfully delivered</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <Code className="h-10 w-10 text-tyrian-600 mr-4" />
+                      <div>
+                        <h3 className="font-bold text-lg">5+ Million</h3>
+                        <p className="text-gray-600 dark:text-gray-400">Lines of AI code</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ScrollFadeIn>
+            </div>
+          </div>
+        </section>
+      </ScrollFadeIn>
+
       {/* Core Services Overview */}
       <ScrollFadeIn delay={400} direction="right">
         <section className="py-20 bg-white dark:bg-gray-900">
@@ -313,9 +374,77 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
-      {/* Why Choose Us Section */}
-      <ScrollFadeIn delay={500}>
+      {/* What Sets Us Apart - New Section */}
+      <ScrollFadeIn delay={450} direction="left">
         <section className="py-20 bg-gray-50 dark:bg-gray-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold gradient-heading mb-6">
+                What Sets Us Apart?
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                Our unique approach to AI development and implementation creates exceptional value for our clients.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  id: 1,
+                  title: "Research-Backed Solutions",
+                  description: "Our solutions are built on cutting-edge research, with 15+ peer-reviewed publications from our team in the last year alone.",
+                  icon: <Microscope className="h-10 w-10 text-white" />,
+                  delay: 500
+                },
+                {
+                  id: 2,
+                  title: "Rapid Implementation",
+                  description: "We deliver AI solutions 40% faster than industry average, getting you from concept to deployment in record time.",
+                  icon: <Clock className="h-10 w-10 text-white" />,
+                  delay: 550
+                },
+                {
+                  id: 3,
+                  title: "Scalable Infrastructure",
+                  description: "Our cloud-native architecture ensures your AI solutions scale seamlessly as your business grows and evolves.",
+                  icon: <Server className="h-10 w-10 text-white" />,
+                  delay: 600
+                }
+              ].map((item) => (
+                <ScrollFadeIn key={item.id} direction="up" delay={item.delay} threshold={0.1}>
+                  <div className="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden h-full">
+                    <div className="bg-gradient-to-r from-tyrian-700 to-tyrian-500 p-6">
+                      <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        {item.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                    </div>
+                    <div className="p-6">
+                      <p className="text-gray-600 dark:text-gray-300">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollFadeIn>
+              ))}
+            </div>
+            
+            <ScrollFadeIn delay={650}>
+              <div className="mt-12 text-center">
+                <Link to="/about">
+                  <Button className="bg-tyrian-700 hover:bg-tyrian-800 text-white">
+                    Learn More About Us
+                  </Button>
+                </Link>
+              </div>
+            </ScrollFadeIn>
+          </div>
+        </section>
+      </ScrollFadeIn>
+
+      {/* Why Choose Us Section - Fixed alignment issues */}
+      <ScrollFadeIn delay={500}>
+        <section className="py-20 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold gradient-heading mb-6">
@@ -326,7 +455,7 @@ const Home = () => {
               </p>
             </div>
             
-            <div className="flex flex-col lg:flex-row items-center">
+            <div className="flex flex-col lg:flex-row items-start">
               <div className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
                 <div className="space-y-6">
                   {[
@@ -354,7 +483,7 @@ const Home = () => {
                     <ScrollFadeIn key={feature.id} direction="left" delay={600 + (feature.id * 100)} threshold={0.2}>
                       <div className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 transform transition-transform hover:scale-105">
                         <div className="flex items-start">
-                          <CheckCircle className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400 mr-3 mt-0.5" />
+                          <CheckCircle className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400 mr-3 mt-0.5 flex-shrink-0" />
                           <div>
                             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                               {feature.title}
@@ -371,7 +500,7 @@ const Home = () => {
               </div>
               
               <ScrollFadeIn direction="right" delay={700}>
-                <div className="lg:w-1/2">
+                <div className="lg:w-1/2 lg:mt-0">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform translate-y-4">
                       <img 
