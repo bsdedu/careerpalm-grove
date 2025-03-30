@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Brain, Cpu, BarChart, Shield, Building, Microscope, Ambulance, ShoppingCart, GraduationCap, Globe, Users, Award, Rocket, Code, Clock, Server, HelpCircle } from "lucide-react";
@@ -587,4 +588,18 @@ const Home = () => {
               Join hundreds of forward-thinking companies already leveraging our AI solutions to drive growth and innovation.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button className="bg-white text-tyrian-800 hover:bg-tyrian-50 px
+              <Button className="bg-white text-tyrian-800 hover:bg-tyrian-50">
+                Get Started Today
+              </Button>
+              <Button variant="outline" className="border-white text-white hover:bg-tyrian-700/30">
+                Schedule a Demo
+              </Button>
+            </div>
+          </div>
+        </section>
+      </ScrollFadeIn>
+    </div>
+  );
+};
+
+export default Home;
