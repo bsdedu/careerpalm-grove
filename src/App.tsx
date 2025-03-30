@@ -8,6 +8,9 @@ import { useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import FloatingEnquiryForm from "./components/FloatingEnquiryForm";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -56,6 +59,11 @@ const AppContent = () => {
       </main>
       <Footer />
       <CookieConsent />
+      
+      {/* Floating components */}
+      <FloatingWhatsApp phoneNumber="1234567890" />
+      <ScrollToTopButton />
+      <FloatingEnquiryForm />
     </div>
   );
 };
