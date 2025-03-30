@@ -1,8 +1,9 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Brain, Cpu, BarChart, Shield, Building, Microscope, Ambulance, ShoppingCart, GraduationCap, Globe, Users, Award, Rocket, Code, Clock, Server } from "lucide-react";
+import { ArrowRight, CheckCircle, Brain, Cpu, BarChart, Shield, Building, Microscope, Ambulance, ShoppingCart, GraduationCap, Globe, Users, Award, Rocket, Code, Clock, Server, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollFadeIn from "@/components/ScrollFadeIn";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Home = () => {
   return (
@@ -93,15 +94,15 @@ const Home = () => {
                 }
               ].map((service, index) => (
                 <ScrollFadeIn key={index} direction="up" delay={300 + (index * 100)} threshold={0.2}>
-                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col justify-between">
-                    <div>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
+                    <div className="flex-1">
                       <div className="h-12 w-12 bg-tyrian-100 dark:bg-tyrian-900/30 rounded-lg flex items-center justify-center mb-6">
                         {service.icon}
                       </div>
                       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                      <p className="text-gray-600 dark:text-gray-300 mb-4">
                         {service.description}
                       </p>
                     </div>
@@ -208,7 +209,7 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
-      {/* Who We Are - New Section */}
+      {/* Who We Are - Section */}
       <ScrollFadeIn delay={350} direction="up">
         <section className="py-20 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -352,7 +353,7 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
-      {/* What Sets Us Apart - New Section */}
+      {/* What Sets Us Apart - Section */}
       <ScrollFadeIn delay={450} direction="left">
         <section className="py-20 bg-gray-50 dark:bg-gray-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -420,7 +421,7 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
-      {/* Why Choose Us Section - Completely redesigned */}
+      {/* Why Choose Us Section */}
       <ScrollFadeIn delay={500}>
         <section className="py-20 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -502,6 +503,79 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
+      {/* FAQ Section - New */}
+      <ScrollFadeIn delay={700} direction="up">
+        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold gradient-heading mb-6">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                Find answers to the most common questions about our AI solutions and services.
+              </p>
+            </div>
+            
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden">
+                <Accordion type="single" collapsible className="divide-y divide-gray-200 dark:divide-gray-700">
+                  {[
+                    {
+                      question: "What industries do your AI solutions serve?",
+                      answer: "Our AI solutions are designed to benefit a wide range of industries including healthcare, finance, retail, manufacturing, education, and research & development. Our tailored approach ensures that we address the specific challenges and opportunities in each sector."
+                    },
+                    {
+                      question: "How long does AI implementation typically take?",
+                      answer: "Implementation timelines vary based on project complexity, but our clients typically see initial results within 4-6 weeks. Our proven methodology accelerates development and deployment, getting you from concept to production 40% faster than industry averages."
+                    },
+                    {
+                      question: "Do I need specialized technical knowledge to use your AI solutions?",
+                      answer: "No, our solutions are designed with user-friendliness in mind. While we provide powerful AI capabilities, our interfaces are intuitive and accessible to non-technical users. We also offer comprehensive training and support to ensure your team can maximize the value of our solutions."
+                    },
+                    {
+                      question: "How do you ensure data security and privacy?",
+                      answer: "Security is paramount in everything we do. We implement industry-leading encryption, access controls, and compliance practices. All data processing adheres to relevant regulations such as GDPR, HIPAA, and CCPA. We also offer data residency options to meet specific regional requirements."
+                    },
+                    {
+                      question: "Can your AI solutions integrate with our existing systems?",
+                      answer: "Absolutely. Our solutions are built with integration in mind, featuring robust APIs and connectors for major enterprise systems, databases, and cloud services. We conduct thorough compatibility assessments to ensure seamless integration with your existing tech stack."
+                    },
+                    {
+                      question: "What ongoing support do you provide after implementation?",
+                      answer: "We provide comprehensive post-implementation support including 24/7 technical assistance, regular maintenance updates, performance optimization, and continuous model retraining. Our client success teams work proactively to ensure you achieve and maintain optimal results."
+                    }
+                  ].map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index}`} className="border-none">
+                      <AccordionTrigger className="py-6 px-6 hover:no-underline">
+                        <div className="flex items-start">
+                          <HelpCircle className="h-6 w-6 text-tyrian-600 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-left font-semibold text-lg text-gray-900 dark:text-white">
+                            {faq.question}
+                          </span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="px-6 pb-6 pt-0 ml-9">
+                        <div className="text-gray-600 dark:text-gray-300 text-base">
+                          {faq.answer}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+              
+              <div className="mt-10 text-center">
+                <Link to="/contact">
+                  <Button className="bg-tyrian-700 hover:bg-tyrian-800 text-white">
+                    Have More Questions? Contact Us
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollFadeIn>
+
       {/* CTA Section */}
       <ScrollFadeIn delay={800} direction="up">
         <section className="py-20 bg-gradient-to-r from-tyrian-800 to-tyrian-600 text-white">
@@ -513,18 +587,4 @@ const Home = () => {
               Join hundreds of forward-thinking companies already leveraging our AI solutions to drive growth and innovation.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button className="bg-white text-tyrian-800 hover:bg-tyrian-50 px-8 py-6 text-lg">
-                Schedule a Demo
-              </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-tyrian-700/50 px-8 py-6 text-lg">
-                Contact Sales
-              </Button>
-            </div>
-          </div>
-        </section>
-      </ScrollFadeIn>
-    </div>
-  );
-};
-
-export default Home;
+              <Button className="bg-white text-tyrian-800 hover:bg-tyrian-50 px
