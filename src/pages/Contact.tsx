@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import ScrollFadeIn from '@/components/ScrollFadeIn';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -54,10 +55,14 @@ const Contact = () => {
         {/* Hero Section */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold gradient-heading mb-6">Contact Us</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              Have a question or ready to start your AI journey? We're here to help.
-            </p>
+            <ScrollFadeIn direction="down">
+              <h1 className="text-4xl md:text-5xl font-bold gradient-heading mb-6">Contact Us</h1>
+            </ScrollFadeIn>
+            <ScrollFadeIn delay={200}>
+              <p className="text-xl text-gray-600 dark:text-gray-400">
+                Have a question or ready to start your AI journey? We're here to help.
+              </p>
+            </ScrollFadeIn>
           </div>
         </div>
 
@@ -65,7 +70,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Contact Form */}
-            <div>
+            <ScrollFadeIn direction="left" delay={300}>
               <Card className="p-6 md:p-8 shadow-md">
                 <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -136,87 +141,75 @@ const Contact = () => {
                   </Button>
                 </form>
               </Card>
-            </div>
+            </ScrollFadeIn>
             
             {/* Contact Information */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold mb-6">Get in touch</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-8">
-                  Have questions or want to discuss how our AI solutions can help your business? 
-                  Reach out to us through any of these channels, and our team will get back to you promptly.
-                </p>
+            <ScrollFadeIn direction="right" delay={400}>
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-2xl font-bold mb-6">Get in touch</h2>
+                  <p className="text-gray-600 dark:text-gray-400 mb-8">
+                    Have questions or want to discuss how our AI solutions can help your business? 
+                    Reach out to us through any of these channels, and our team will get back to you promptly.
+                  </p>
+                  
+                  <div className="space-y-6">
+                    {[
+                      {
+                        icon: <Mail className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400" />,
+                        title: "Email",
+                        content: <a href="mailto:info@tyrianai.com" className="text-tyrian-600 dark:text-tyrian-400 hover:underline">info@tyrianai.com</a>
+                      },
+                      {
+                        icon: <Phone className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400" />,
+                        title: "Phone",
+                        content: <a href="tel:+12345678900" className="text-tyrian-600 dark:text-tyrian-400 hover:underline">+1 (234) 567-8900</a>
+                      },
+                      {
+                        icon: <MapPin className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400" />,
+                        title: "Office",
+                        content: <p className="text-gray-600 dark:text-gray-400">123 AI Street, Tech Valley<br />San Francisco, CA 94043<br />United States</p>
+                      },
+                      {
+                        icon: <Clock className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400" />,
+                        title: "Business Hours",
+                        content: <p className="text-gray-600 dark:text-gray-400">Monday - Friday: 9:00 AM - 6:00 PM PST<br />Saturday - Sunday: Closed</p>
+                      }
+                    ].map((item, index) => (
+                      <ScrollFadeIn key={index} delay={500 + (index * 100)}>
+                        <div className="flex items-start">
+                          <div className="bg-tyrian-100 dark:bg-tyrian-900 p-3 rounded-full mr-4">
+                            {item.icon}
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900 dark:text-white">{item.title}</h3>
+                            {item.content}
+                          </div>
+                        </div>
+                      </ScrollFadeIn>
+                    ))}
+                  </div>
+                </div>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="bg-tyrian-100 dark:bg-tyrian-900 p-3 rounded-full mr-4">
-                      <Mail className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-white">Email</h3>
-                      <a href="mailto:info@tyrianai.com" className="text-tyrian-600 dark:text-tyrian-400 hover:underline">
-                        info@tyrianai.com
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-tyrian-100 dark:bg-tyrian-900 p-3 rounded-full mr-4">
-                      <Phone className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-white">Phone</h3>
-                      <a href="tel:+12345678900" className="text-tyrian-600 dark:text-tyrian-400 hover:underline">
-                        +1 (234) 567-8900
-                      </a>
+                <ScrollFadeIn delay={800}>
+                  <div className="bg-tyrian-50 dark:bg-gray-800 p-6 rounded-xl">
+                    <h3 className="text-xl font-bold mb-4">Join Our Newsletter</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      Stay updated with the latest in AI innovation and industry insights.
+                    </p>
+                    <div className="flex gap-2">
+                      <Input placeholder="Your email address" className="flex-grow" />
+                      <Button>Subscribe</Button>
                     </div>
                   </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-tyrian-100 dark:bg-tyrian-900 p-3 rounded-full mr-4">
-                      <MapPin className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-white">Office</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        123 AI Street, Tech Valley<br />
-                        San Francisco, CA 94043<br />
-                        United States
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-tyrian-100 dark:bg-tyrian-900 p-3 rounded-full mr-4">
-                      <Clock className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-white">Business Hours</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        Monday - Friday: 9:00 AM - 6:00 PM PST<br />
-                        Saturday - Sunday: Closed
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                </ScrollFadeIn>
               </div>
-              
-              <div className="bg-tyrian-50 dark:bg-gray-800 p-6 rounded-xl">
-                <h3 className="text-xl font-bold mb-4">Join Our Newsletter</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Stay updated with the latest in AI innovation and industry insights.
-                </p>
-                <div className="flex gap-2">
-                  <Input placeholder="Your email address" className="flex-grow" />
-                  <Button>Subscribe</Button>
-                </div>
-              </div>
-            </div>
+            </ScrollFadeIn>
           </div>
         </div>
         
         {/* Map Section */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollFadeIn direction="up" delay={500} className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-96 rounded-xl overflow-hidden shadow-md">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50470.29856705456!2d-122.08010121225585!3d37.39020759181561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7495bec0189%3A0x7c17d44a466baf9b!2sMountain%20View%2C%20CA%2C%20USA!5e0!3m2!1sen!2sca!4v1628786754936!5m2!1sen!2sca" 
@@ -227,7 +220,7 @@ const Contact = () => {
               loading="lazy"
             ></iframe>
           </div>
-        </div>
+        </ScrollFadeIn>
       </div>
     </>
   );
