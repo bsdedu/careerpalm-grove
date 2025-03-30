@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,7 +7,6 @@ import { useEffect, createContext, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import FloatingEnquiryForm from "./components/FloatingEnquiryForm";
 import Home from "./pages/Home";
@@ -74,8 +72,7 @@ const AppContent = () => {
         <Footer />
         <CookieConsent />
         
-        {/* Floating components */}
-        <FloatingWhatsApp phoneNumber="1234567890" />
+        {/* Removed FloatingWhatsApp */}
         <ScrollToTopButton />
         <FloatingEnquiryForm />
       </div>

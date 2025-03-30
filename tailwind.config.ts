@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,23 +62,21 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// New custom color scheme
 				custom: {
-					red: '#F7374F',
+					red: '#FF4E00', // Updated primary red color
 					purple: {
 						light: '#88304E',
 						dark: '#522546',
 					},
 					dark: '#2C2C2C',
 				},
-				// Replacing tyrian colors with our new color scheme
 				tyrian: {
 					50: '#FEE5EB',
 					100: '#FDC1CF',
 					200: '#FB9EB3',
 					300: '#F97A96',
 					400: '#F7577A',
-					500: '#F7374F', // Main red
+					500: '#FF4E00', // Main red
 					600: '#D42E48',
 					700: '#B12642',
 					800: '#88304E', // Light purple
