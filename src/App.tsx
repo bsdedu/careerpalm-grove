@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -74,7 +75,8 @@ const AppContent = () => {
         
         {/* Removed FloatingWhatsApp */}
         <ScrollToTopButton />
-        <FloatingEnquiryForm />
+        {/* Only show FloatingEnquiryForm on pages other than Home */}
+        {window.location.pathname !== '/' && <FloatingEnquiryForm />}
       </div>
     </AppContext.Provider>
   );

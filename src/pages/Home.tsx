@@ -26,12 +26,15 @@ const Home = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button 
-                    className="bg-tyrian-700 hover:bg-tyrian-800 text-white px-8 py-6 text-lg"
                     onClick={openGetStartedForm}
+                    className="text-white px-8 py-6 text-lg"
                   >
                     Get Started
                   </Button>
-                  <Button variant="outline" className="border-tyrian-600 text-tyrian-700 hover:bg-tyrian-50 dark:border-tyrian-400 dark:text-tyrian-400 dark:hover:bg-gray-800 px-8 py-6 text-lg">
+                  <Button 
+                    variant="outline" 
+                    className="border-custom-red text-custom-red hover:bg-custom-red/10 px-8 py-6 text-lg"
+                  >
                     Learn More
                   </Button>
                 </div>
