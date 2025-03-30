@@ -216,9 +216,9 @@ const Home = () => {
               <ScrollFadeIn direction="left" delay={400}>
                 <div>
                   <img 
-                    src="https://images.unsplash.com/photo-1534456066664-dc8b3a9a3010?auto=format&fit=crop&w=800&q=80" 
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
                     alt="TyrianAI Team" 
-                    className="rounded-xl shadow-lg w-full"
+                    className="rounded-xl shadow-lg w-full h-full object-cover"
                   />
                 </div>
               </ScrollFadeIn>
@@ -420,7 +420,7 @@ const Home = () => {
         </section>
       </ScrollFadeIn>
 
-      {/* Why Choose Us Section - Improved Alignment and Design */}
+      {/* Why Choose Us Section - Completely redesigned */}
       <ScrollFadeIn delay={500}>
         <section className="py-20 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -433,68 +433,70 @@ const Home = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                {[
-                  {
-                    id: 1,
-                    title: "Elite AI Expertise",
-                    description: "Our team includes PhD researchers and AI engineers from top tech companies and research institutions with a proven track record of innovation."
-                  },
-                  {
-                    id: 2,
-                    title: "Custom-Tailored Solutions",
-                    description: "We don't believe in one-size-fits-all. Every AI solution we develop is meticulously crafted to address your specific business needs and objectives."
-                  },
-                  {
-                    id: 3,
-                    title: "End-to-End Support",
-                    description: "From initial consultation to deployment and beyond, we provide comprehensive support including 24/7 monitoring, maintenance, and continuous optimization."
-                  },
-                  {
-                    id: 4,
-                    title: "Proven ROI",
-                    description: "Our clients consistently report a significant return on investment, with an average 35% increase in operational efficiency and 25% cost reduction."
-                  }
-                ].map((feature) => (
-                  <ScrollFadeIn key={feature.id} direction="left" delay={600 + (feature.id * 100)} threshold={0.2}>
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transform transition-transform hover:scale-105 flex items-start space-x-4">
-                      <CheckCircle className="h-6 w-6 text-tyrian-600 dark:text-tyrian-400 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                          {feature.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300">
-                          {feature.description}
-                        </p>
+            {/* Redesigned cards with improved layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                {
+                  id: 1,
+                  title: "Elite AI Expertise",
+                  description: "Our team includes PhD researchers and AI engineers from top tech companies and research institutions with a proven track record of innovation.",
+                  icon: <Users className="h-10 w-10 text-white" />,
+                  image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+                },
+                {
+                  id: 2,
+                  title: "Custom-Tailored Solutions",
+                  description: "We don't believe in one-size-fits-all. Every AI solution we develop is meticulously crafted to address your specific business needs and objectives.",
+                  icon: <Brain className="h-10 w-10 text-white" />,
+                  image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=600&q=80"
+                },
+                {
+                  id: 3,
+                  title: "End-to-End Support",
+                  description: "From initial consultation to deployment and beyond, we provide comprehensive support including 24/7 monitoring, maintenance, and continuous optimization.",
+                  icon: <Clock className="h-10 w-10 text-white" />,
+                  image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80"
+                },
+                {
+                  id: 4,
+                  title: "Proven ROI",
+                  description: "Our clients consistently report a significant return on investment, with an average 35% increase in operational efficiency and 25% cost reduction.",
+                  icon: <BarChart className="h-10 w-10 text-white" />,
+                  image: "https://images.unsplash.com/photo-1599658880436-c61792e70672?auto=format&fit=crop&w=600&q=80"
+                }
+              ].map((feature) => (
+                <ScrollFadeIn key={feature.id} direction="up" delay={600 + (feature.id * 100)} threshold={0.2}>
+                  <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                    <div className="relative h-48 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-tyrian-900/80 to-tyrian-700/40 z-10"></div>
+                      <img 
+                        src={feature.image} 
+                        alt={feature.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 left-4 bg-tyrian-600 p-3 rounded-full z-20">
+                        {feature.icon}
                       </div>
                     </div>
-                  </ScrollFadeIn>
-                ))}
-              </div>
-              
-              <ScrollFadeIn direction="right" delay={700}>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80"
-                  ].map((src, index) => (
-                    <div 
-                      key={index} 
-                      className={`bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden 
-                        ${index % 2 === 0 ? 'translate-y-4' : ''}`}
-                    >
-                      <img 
-                        src={src} 
-                        alt={`TyrianAI imagery ${index + 1}`} 
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                      />
+                    <div className="p-6 bg-white dark:bg-gray-800">
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        {feature.description}
+                      </p>
                     </div>
-                  ))}
-                </div>
-              </ScrollFadeIn>
+                  </div>
+                </ScrollFadeIn>
+              ))}
+            </div>
+            
+            <div className="mt-12 text-center">
+              <Link to="/about">
+                <Button className="bg-tyrian-700 hover:bg-tyrian-800 text-white">
+                  Learn More About Our Approach
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
