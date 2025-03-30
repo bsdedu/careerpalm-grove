@@ -1,3 +1,4 @@
+
 import React, { useContext } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Brain, Cpu, BarChart, Shield, Building, Microscope, Ambulance, ShoppingCart, GraduationCap, Globe, Users, Award, Rocket, Code, Clock, Server, HelpCircle } from "lucide-react";
@@ -592,4 +593,22 @@ const Home = () => {
             <p className="text-xl text-tyrian-100 mb-8 max-w-3xl mx-auto">
               Join hundreds of forward-thinking companies already leveraging our AI solutions to drive growth and innovation.
             </p>
-            <div className="
+            <div className="flex justify-center space-x-4">
+              <Button 
+                className="bg-white text-tyrian-700 hover:bg-gray-100 px-8 py-6 text-lg"
+                onClick={openGetStartedForm}
+              >
+                Get Started Now
+              </Button>
+              <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
+                Contact Our Team
+              </Button>
+            </div>
+          </div>
+        </section>
+      </ScrollFadeIn>
+    </div>
+  );
+};
+
+export default Home;
