@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import FloatingEnquiryForm from "./components/FloatingEnquiryForm";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -73,7 +74,9 @@ const AppContent = () => {
         <Footer />
         <CookieConsent />
         
-        {/* Removed FloatingWhatsApp */}
+        {/* Show FloatingWhatsApp only on the home page */}
+        {window.location.pathname === '/' && <FloatingWhatsApp phoneNumber="1234567890" />}
+        
         <ScrollToTopButton />
         {/* Only show FloatingEnquiryForm on pages other than Home */}
         {window.location.pathname !== '/' && <FloatingEnquiryForm />}

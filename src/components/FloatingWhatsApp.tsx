@@ -1,5 +1,5 @@
 
-import { Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface FloatingWhatsAppProps {
@@ -26,7 +26,7 @@ const FloatingWhatsApp = ({
       size="icon"
       aria-label="Contact us on WhatsApp"
     >
-      <Phone className="h-6 w-6 text-white" />
+      <MessageCircle className="h-6 w-6 text-white" />
     </Button>
   );
 };
