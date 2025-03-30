@@ -14,10 +14,20 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import GetStartedForm from "./GetStartedForm";
+import GetStartedSuccess from "./GetStartedSuccess";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [formDialogOpen, setFormDialogOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +36,23 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleGetStarted = () => {
+    setFormDialogOpen(true);
+    setFormSubmitted(false);
+  };
+
+  const handleFormSuccess = () => {
+    setFormSubmitted(true);
+  };
+
+  const handleDialogClose = () => {
+    setFormDialogOpen(false);
+    // Reset the form submission state after the dialog closes
+    setTimeout(() => {
+      setFormSubmitted(false);
+    }, 300);
+  };
 
   const serviceLinks = [
     { name: "Machine Learning", path: "/services/machine-learning" },
@@ -97,7 +124,10 @@ const Header = () => {
               </div>
             </div>
             
-            <Button className="bg-tyrian-700 hover:bg-tyrian-800 text-white hover:scale-105 transition-all duration-300">
+            <Button 
+              className="bg-tyrian-700 hover:bg-tyrian-800 text-white hover:scale-105 transition-all duration-300"
+              onClick={handleGetStarted}
+            >
               Get Started
             </Button>
           </nav>
@@ -158,13 +188,32 @@ const Header = () => {
             
             <Button 
               className="w-full bg-tyrian-700 hover:bg-tyrian-800 text-white mt-4 transition-all duration-300"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                handleGetStarted();
+              }}
             >
               Get Started
             </Button>
           </div>
         </div>
       )}
+
+      {/* Get Started Form Dialog */}
+      <Dialog open={formDialogOpen} onOpenChange={handleDialogClose}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl sm:text-2xl">
+              {formSubmitted ? "Request Submitted" : "Get Started with TyrianAI"}
+            </DialogTitle>
+          </DialogHeader>
+          {formSubmitted ? (
+            <GetStartedSuccess onClose={handleDialogClose} />
+          ) : (
+            <GetStartedForm onSuccess={handleFormSuccess} />
+          )}
+        </DialogContent>
+      </Dialog>
     </header>
   );
 };

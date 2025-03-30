@@ -1,12 +1,14 @@
-
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Brain, Cpu, BarChart, Shield, Building, Microscope, Ambulance, ShoppingCart, GraduationCap, Globe, Users, Award, Rocket, Code, Clock, Server, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollFadeIn from "@/components/ScrollFadeIn";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { AppContext } from "../App";
 
 const Home = () => {
+  const { openGetStartedForm } = useContext(AppContext);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -22,7 +24,10 @@ const Home = () => {
                   Transform your business with our cutting-edge artificial intelligence and machine learning technologies. Stay ahead of the competition with smart, data-driven solutions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-tyrian-700 hover:bg-tyrian-800 text-white px-8 py-6 text-lg">
+                  <Button 
+                    className="bg-tyrian-700 hover:bg-tyrian-800 text-white px-8 py-6 text-lg"
+                    onClick={openGetStartedForm}
+                  >
                     Get Started
                   </Button>
                   <Button variant="outline" className="border-tyrian-600 text-tyrian-700 hover:bg-tyrian-50 dark:border-tyrian-400 dark:text-tyrian-400 dark:hover:bg-gray-800 px-8 py-6 text-lg">
@@ -587,19 +592,4 @@ const Home = () => {
             <p className="text-xl text-tyrian-100 mb-8 max-w-3xl mx-auto">
               Join hundreds of forward-thinking companies already leveraging our AI solutions to drive growth and innovation.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button className="bg-white text-tyrian-800 hover:bg-tyrian-50">
-                Get Started Today
-              </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-tyrian-700/30">
-                Schedule a Demo
-              </Button>
-            </div>
-          </div>
-        </section>
-      </ScrollFadeIn>
-    </div>
-  );
-};
-
-export default Home;
+            <
